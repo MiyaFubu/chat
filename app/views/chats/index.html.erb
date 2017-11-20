@@ -1,0 +1,15 @@
+<h1>chatPage<h1>
+<table>
+  <tbody>
+  <% @chats.each do |chat| %>
+    <tr>
+      <td><%= chat.user_id %></td>
+    </tr>
+    <tr>
+      <td><%= chat.content %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
