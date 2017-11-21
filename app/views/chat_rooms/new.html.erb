@@ -2,13 +2,13 @@
 <p>Find me in app/views/chat_rooms/new.html.erb</p>
 
 
+<%= form_for :chat_room, url: 'chat_rooms/index' do |f| %>
 <table>
   <tr>
     <th>room_id</th>
     <th>room_name</th>
     <th></th>
   </tr>
-  <%= form_for :chat_room, url: 'chat_rooms/index' do |f| %>
   <tr>
     <td>
       <%= f.text_field :room_id %>
@@ -20,5 +20,6 @@
       <%= f.submit %>
     </td>
   </tr>
-  <% end %>
 </table>
+
+<% end %>
