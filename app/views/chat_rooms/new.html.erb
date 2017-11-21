@@ -1,0 +1,24 @@
+<h1>ChatRooms#new</h1>
+<p>Find me in app/views/chat_rooms/new.html.erb</p>
+
+
+<table>
+  <tr>
+    <th>room_id</th>
+    <th>room_name</th>
+    <th></th>
+  </tr>
+  <%= form_for :chat_room, url: 'chat_rooms/index' do |f| %>
+  <tr>
+    <td>
+      <%= f.text_field :room_id %>
+    </td>
+    <td>
+      <%= f.text_field :chat_name %>
+    </td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+  <% end %>
+</table>
