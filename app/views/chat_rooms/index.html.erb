@@ -8,8 +8,8 @@
   </thead>
 <% @chat_rooms.each do |chat_room| %>
   <tbody>
-    <td><% @chat_rooms.room_id %></td>
-    <td><% @chat_rooms.chat_name %></td>
+    <td><%= @chat_rooms.room_id %></td>
+    <td><%= @chat_rooms.chat_name %></td>
     <td><%= link_to 'in', chats_path %></td>
   </tbody>
 <% end %>
