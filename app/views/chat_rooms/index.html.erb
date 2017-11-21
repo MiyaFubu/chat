@@ -1,5 +1,4 @@
 <h1>select ChatRoom</h1>
-<% @chat_rooms.each do |chat_room| %>
 <table>
   <thead>
     <tr>
@@ -7,11 +6,12 @@
       <th>room_name</th>
     </tr>
   </thead>
-  <tr>
+<% @chat_rooms.each do |chat_room| %>
+  <tbody>
     <td><% chat_room.room_id %></td>
     <td><% chat_room.chat_name %></td>
     <td><%= link_to 'in', chats_path %></td>
-  </tr>
-</table>
+  </tbody>
 <% end %>
+</table>
 <%= link_to 'new', new_chat_room_path %>
