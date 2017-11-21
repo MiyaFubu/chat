@@ -8,7 +8,7 @@ class ChatRoomsController < ApplicationController
   end
 
   def show
-    @chat_room = ChatRoom.new(chat_room_params)
+    @chat_room = ChatRoom.find(params[:room_id])
   end
 
   def create
