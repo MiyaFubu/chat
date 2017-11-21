@@ -8,8 +8,10 @@ class ChatRoomsController < ApplicationController
   end
 
   def show
-    @chat_room = ChatRoom.find(params[:room_id])
+    @chat_room = ChatRoom.find(params[:id])
+    redirect_to :action => 'index'
   end
+
 
   def create
     @chat_room = ChatRoom.new(chat_room_params)
