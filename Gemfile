@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 
 gem 'bcrypt', platforms: :ruby
 
+gem 'wdm'
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use Puma as the app server
