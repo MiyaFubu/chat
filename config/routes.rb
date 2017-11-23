@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-  root 'chat_rooms#index'
+
+  root 'chats#index'
   resources :chats
   resources :chat_rooms
   resources :users

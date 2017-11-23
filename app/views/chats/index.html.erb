@@ -1,15 +1,29 @@
 <h1>chatPage<h1>
 <table>
   <tbody>
-  <% @chats.each do |chat| %>
+    <tr>
+      <td>user_is</td>
+      <td>content</td>
+    </tr>
+    <% @chats.each do |chat| %>
     <tr>
       <td><%= chat.user_id %></td>
-    </tr>
-    <tr>
       <td><%= chat.content %></td>
     </tr>
-  <% end %>
+    <% end %>
   </tbody>
 </table>
-
-
+<hr>
+<%= form_for :chat, url: chats_path do |f| %>
+<table>
+  <tr>
+    <td><%=  f.text_field :user_id %></td>
+    <td><%=  f.text_field :content %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit %></td>
+  </tr>
+</table>
+<% end %>
+<%= link_to 'new', new_chat_path %>
+<%= link_to 'edit', edit_chat_path(@chats) %>

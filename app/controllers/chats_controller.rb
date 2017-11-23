@@ -3,11 +3,16 @@ class ChatsController < ApplicationController
     @chat = Chat.new
   end
 
+  def edit
+  end
+
   def index
     @chats = Chat.all
   end
 
   def show
+    @chat = Chat.find(params[:id])
+    redirect_to :action => 'index'
   end
 
   def create

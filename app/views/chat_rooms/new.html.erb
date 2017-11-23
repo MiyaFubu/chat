@@ -5,21 +5,27 @@
 <%= form_for :chat_room, url: chat_rooms_path do |f| %>
 <table>
   <tr>
-    <th></th>
-    <th>room_name</th>
+    <th>create_new_room!!</th>
     <th></th>
   </tr>
   <tr>
-    <td>
-
-    </td>
-    <td>
-      <%= f.text_field :chat_name %>
-    </td>
-    <td>
-      <%= f.submit %>
-    </td>
+    <td>room_name:</td>
+    <td><%= f.text_field :chat_name %></td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <td colspan="2">first_coment</td>
+  </tr>
+  <%= form_for([@chat_room,@chat_room.chats.build], url: chat_rooms_path) do |f| %>
+  <tr>
+    <td><%=  f.text_field :user_id %></td>
+    <td><%=  f.text_area :content %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td><%= f.submit %></td>
   </tr>
 </table>
-
 <% end %>
