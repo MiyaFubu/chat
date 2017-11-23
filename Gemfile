@@ -53,6 +53,7 @@ group :development, :test do
   gem 'byebug', platforms: :mri
   # Adds support for Capybara system testing and selenium driver
 #  gem 'capybara', '~> 2.13'
+gem 'faker'
 #  gem 'selenium-webdriver'
 end
 

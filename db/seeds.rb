@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+10.times do |i|
+  User.create(name: Faker::Pokemon.name)
+end
+
+
+10.times do |i|
+  Chat.create(content: Faker::Pokemon.move,user_id:"#{i}")
+end
+
+10.times do |i|
+  ChatRoom.create(chat_name: Faker::Book.title)
+
+end

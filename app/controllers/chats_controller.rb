@@ -12,12 +12,12 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find(params[:id])
-    redirect_to :action => 'index'
+    redirect_to action: 'index'
   end
 
   def create
     @chat = Chat.new(chat_params)
-    @chat.save
+    @chat.save!
     redirect_to @chat
   end
 

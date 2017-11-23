@@ -15,15 +15,9 @@
 </table>
 <hr>
 <%= form_for :chat, url: chats_path do |f| %>
-<table>
-  <tr>
-    <td><%=  f.text_field :user_id %></td>
-    <td><%=  f.text_field :content %></td>
-  </tr>
-  <tr>
-    <td><%= f.submit %></td>
-  </tr>
-</table>
+    <%=  f.text_field :user_id %><br>
+    <%=  f.text_field :content %><br>
+    <%= f.submit %>
 <% end %>
 <%= link_to 'new', new_chat_path %>
 <%= link_to 'edit', edit_chat_path(@chats) %>
