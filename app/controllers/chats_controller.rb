@@ -16,20 +16,17 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.new(chat_params)
-    @chat.save!
-    redirect_to @chat
-  end
+    chat_room = ChatRoom.find(params[:chat_room_id])
 
-  def destroy
-    @chat = Chat.find(chat_params)
-    @chat.destroy
-    redirect_to chat_path
+    @chat = Chat.new(chat_params)
+    @chat.chat_room = chat_room
+    @chat.save!
+    redirect_to chat_room_path(chat_room)
   end
 
   private
     def chat_params
-      params.require(:chat).permit(:room_id ,:user_id, :content)
+      params.require(:chat).permit(:user_id, :content)
     end
 
 end

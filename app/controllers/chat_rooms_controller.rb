@@ -9,19 +9,19 @@ class ChatRoomsController < ApplicationController
 
   def show
     @chat_room = ChatRoom.find(params[:id])
-    redirect_to action: 'index'
+    @chats = @chat_room.chats
   end
 
 
   def create
     @chat_room = ChatRoom.new(chat_room_params)
-    @chat_room.save
+    @chat_room.save!
     redirect_to @chat_room
   end
 
 private
   def chat_room_params
-    params.require(:chat_room).permit(:chat_name, :room_id)
+    params.require(:chat_room).permit(:chat_name, :chat_room_id,:user_id)
   end
 
 end

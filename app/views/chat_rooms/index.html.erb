@@ -10,7 +10,7 @@
   <tbody>
     <td><%= chat_room.id %></td>
     <td><%= chat_room.chat_name %></td>
-    <td><%= link_to 'in', chats_path %></td>
+    <td><%= link_to 'in', chat_room_path(chat_room) %></td>
   </tbody>
 <% end %>
 </table>
