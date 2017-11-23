@@ -1,4 +1,24 @@
-<h1>ChatRooms#show</h1>
-<p>Find me in app/views/chat_rooms/show.html.erb</p>
-<%= @chat_room.chat_name %><br>
-<%= @chat_room.room_id %>
+<h1>chatPage<h1>
+<table>
+  <tbody>
+    <tr>
+      <td>user_is</td>
+      <td>content</td>
+    </tr>
+    <% @chats.each do |chat| %>
+    <tr>
+      <td><%= chat.user_id %></td>
+      <td><%= chat.content %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<hr>
+<%= form_for :chat, url: chats_path do |f| %>
+    <%=  f.text_field :user_id %><br>
+    <%=  f.text_field :room_id %><br>
+    <%=  f.text_field :content %><br>
+    <%= f.submit %>
+<% end %>
+<%= link_to 'new', new_chat_path %>
+<%= link_to 'edit', edit_chat_path(@chats) %>

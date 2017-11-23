@@ -9,7 +9,7 @@ class ChatRoomsController < ApplicationController
 
   def show
     @chat_room = ChatRoom.find(params[:id])
-    redirect_to :action => 'index'
+    redirect_to action: 'index'
   end
 
 

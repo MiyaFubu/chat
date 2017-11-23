@@ -8,15 +8,18 @@
 
 
 10.times do |i|
-  User.create(name: Faker::Pokemon.name)
+  ChatRoom.create!(chat_name: Faker::Book.title)
+end
+
+10.times do |i|
+  User.create!(name: Faker::Pokemon.name)
 end
 
 
 10.times do |i|
-  Chat.create(content: Faker::Pokemon.move,user_id:"#{i}")
-end
-
-10.times do |i|
-  ChatRoom.create(chat_name: Faker::Book.title)
-
+  Chat.create!(
+    content: Faker::Pokemon.move,
+    user: User.find(i + 1),
+    chat_room: ChatRoom.find(i + 1)
+  )
 end

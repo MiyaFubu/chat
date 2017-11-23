@@ -16,7 +16,7 @@
   <tr>
     <td colspan="2">first_coment</td>
   </tr>
-  <%= form_for([@chat_room,@chat_room.chats.build], url: chat_rooms_path) do |f| %>
+  <%= form_for(@chat_room.chats.build, url: chat_rooms_path) do |f| %>
   <tr>
     <td><%=  f.text_field :user_id %></td>
     <td><%=  f.text_area :content %></td>

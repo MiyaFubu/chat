@@ -16,6 +16,7 @@
 <hr>
 <%= form_for :chat, url: chats_path do |f| %>
     <%=  f.text_field :user_id %><br>
+    <%=  f.text_field :room_id %><br>
     <%=  f.text_field :content %><br>
     <%= f.submit %>
 <% end %>
