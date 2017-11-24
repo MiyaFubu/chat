@@ -1,32 +1,10 @@
-<h1>ChatRooms#new</h1>
-<p>Find me in app/views/chat_rooms/new.html.erb</p>
-
+<h1>CreateRoom</h1>
 
 <%= form_for :chat_room, url: chat_rooms_path do |f| %>
-<table>
-  <tr>
-    <th>create_new_room!!</th>
-    <th></th>
-  </tr>
-  <tr>
-    <td>room_name:</td>
-    <td><%= f.text_field :chat_name %></td>
-  </tr>
-
-  <tr>
-    <td colspan="2">first_coment</td>
-  </tr>
-  <%= form_for(@chat_room.chats.build, url: chat_rooms_path) do |f| %>
-  <tr>
-    <td><%=  f.text_field :user_id %></td>
-    <td><%=  f.text_area :content %></td>
-    <td><%=  f.hidden_field :chat_room_id, :chat_room %></td>
-
-  </tr>
-  <% end %>
-  <tr>
-    <td></td>
-    <td><%= f.submit %></td>
-  </tr>
-</table>
+<p>
+  新しい部屋を作成します。
+  
+</p>
+<p>
+  room_name:<%= f.text_field :chat_name %><%= f.submit %></p>
 <% end %>
