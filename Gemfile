@@ -50,7 +50,7 @@ gem 'omniauth-twitter'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3', '1.3.13'
-  gem 'byebug', platforms: :mri
+  gem 'byebug'
   # Adds support for Capybara system testing and selenium driver
 #  gem 'capybara', '~> 2.13'
 gem 'faker'
