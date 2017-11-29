@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
   root 'chats#index'
   resources :chats
   resources :chat_rooms

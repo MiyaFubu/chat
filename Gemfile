@@ -13,7 +13,7 @@ gem 'bootstrap-sass'
 
 gem 'bcrypt', platforms: :ruby
 
-gem 'wdm'
+gem 'wdm',platforms: :mingw
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
@@ -50,7 +50,7 @@ gem 'omniauth-twitter'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3', '1.3.13'
-  gem 'byebug'
+  gem 'byebug', platform: :ruby
   # Adds support for Capybara system testing and selenium driver
 #  gem 'capybara', '~> 2.13'
 gem 'faker'
