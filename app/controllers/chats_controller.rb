@@ -17,7 +17,6 @@ class ChatsController < ApplicationController
 
   def create
     chat_room = ChatRoom.find(params[:chat_room_id])
-
     @chat = Chat.new(chat_params)
     @chat.chat_room = chat_room
     @chat.save!
