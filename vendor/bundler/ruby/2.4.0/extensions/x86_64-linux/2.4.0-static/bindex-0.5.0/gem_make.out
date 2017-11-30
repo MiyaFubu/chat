@@ -1,0 +1,15 @@
+current directory: /home/MiyaFubu/workspace/chat-room/vendor/bundler/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+/home/MiyaFubu/MiyaFubu/.rbenv/versions/2.4.2/bin/ruby -r ./siteconf20171130-5817-trr2or.rb extconf.rb
+creating Makefile
+
+current directory: /home/MiyaFubu/workspace/chat-room/vendor/bundler/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /home/MiyaFubu/workspace/chat-room/vendor/bundler/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.so
+
+current directory: /home/MiyaFubu/workspace/chat-room/vendor/bundler/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20171130-5817-1avq8jg/bindex

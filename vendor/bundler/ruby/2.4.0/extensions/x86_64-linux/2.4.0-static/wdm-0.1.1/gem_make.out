@@ -1,0 +1,11 @@
+current directory: /home/MiyaFubu/workspace/chat-room/vendor/bundler/ruby/2.4.0/gems/wdm-0.1.1/ext/wdm
+/home/MiyaFubu/MiyaFubu/.rbenv/versions/2.4.2/bin/ruby -r ./siteconf20171130-5817-1x1x96o.rb extconf.rb
+
+current directory: /home/MiyaFubu/workspace/chat-room/vendor/bundler/ruby/2.4.0/gems/wdm-0.1.1/ext/wdm
+make "DESTDIR=" clean
+
+current directory: /home/MiyaFubu/workspace/chat-room/vendor/bundler/ruby/2.4.0/gems/wdm-0.1.1/ext/wdm
+make "DESTDIR="
+
+current directory: /home/MiyaFubu/workspace/chat-room/vendor/bundler/ruby/2.4.0/gems/wdm-0.1.1/ext/wdm
+make "DESTDIR=" install

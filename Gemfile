@@ -14,7 +14,7 @@ gem 'bootstrap-sass'
 gem 'bcrypt', platforms: :ruby
 #gem 'bcrypt-ruby'
 
-gem 'wdm', platforms: :ruby
+#gem 'wdm', platforms: :ruby
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'

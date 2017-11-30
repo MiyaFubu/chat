@@ -6,9 +6,7 @@
   name
   <%= f.text_field :name %><br>
   pass
-  <%= f.text_field :password %><br>
-  Re:pass
-  <%= f.text_field :password_confirmation %>
+  <%= f.text_field :password_digest %><br>
   <%= f.submit "CreateUser" %>
 </p>
 <% end %>

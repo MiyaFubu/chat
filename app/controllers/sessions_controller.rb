@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  berore_action :set_user,only[:create]
+  before_action :set_user, only: [:create]
   def new
   end
 
