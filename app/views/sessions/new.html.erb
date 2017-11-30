@@ -1,2 +1,23 @@
 <h1>Sessions#new</h1>
 <p>Find me in app/views/sessions/new.html.erb</p>
+<% if logged_in? %>
+  <p>
+    <% user.name %>
+    loginしてます
+  </p>
+<% else %>
+<p>
+  loginしてください
+</p>
+<% end %>
+
+
+<%= form_for :session, url: login_path do |f| %>
+<p>
+  <%= f.text_field :name %>
+  <%= f.text_field :password %>
+  <%= f.submit"login" %>
+</p>
+
+
+<% end %>

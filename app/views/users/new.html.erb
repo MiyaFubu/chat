@@ -3,6 +3,12 @@
 <%= form_for :user, url: users_path do |f| %>
 
 <p>
-  <%= f.text_field :name %><%= f.submit "CreateUser" %>
+  name
+  <%= f.text_field :name %><br>
+  pass
+  <%= f.text_field :password %><br>
+  Re:pass
+  <%= f.text_field :password_confirmation %>
+  <%= f.submit "CreateUser" %>
 </p>
 <% end %>

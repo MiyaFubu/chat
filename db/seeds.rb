@@ -12,14 +12,19 @@
 end
 
 10.times do |i|
-  User.create!(name: Faker::Pokemon.name)
+  password = "hoge"
+  user = User.new(name: "test-#{i}")
+  user.password_digest = user.encrypt(password)
+  user.save!
 end
 
+users = User.all.to_a
+rooms = ChatRoom.all.to_a
 
-10.times do |i|
+1000.times do |i|
   Chat.create!(
     content: Faker::Pokemon.move,
-    user: User.find(i + 1),
-    chat_room: ChatRoom.find(i + 1)
+    user: users.sample,
+    chat_room: rooms.sample
   )
 end

@@ -1,4 +1,6 @@
 class ChatRoomsController < ApplicationController
+  before_action :authenticate
+
   def new
     @chat_room = ChatRoom.new
   end
