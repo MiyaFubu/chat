@@ -12,12 +12,12 @@ NULLCMD = :
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /home/MiyaFubu/MiyaFubu/.rbenv/versions/2.4.2/include/ruby-2.4.0
+topdir = /C/Ruby24-x64/include/ruby-2.4.0
 hdrdir = $(topdir)
-arch_hdrdir = /home/MiyaFubu/MiyaFubu/.rbenv/versions/2.4.2/include/ruby-2.4.0/x86_64-linux
+arch_hdrdir = C:/Ruby24-x64/include/ruby-2.4.0/x64-mingw32
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/home/MiyaFubu/MiyaFubu/.rbenv/versions/2.4.2
+prefix = $(DESTDIR)/C/Ruby24-x64
 rubysitearchprefix = $(rubylibprefix)/$(sitearch)
 rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20171130-5817-1avq8jg
-sitelibdir = $(DESTDIR)./.gem.20171130-5817-1avq8jg
+sitearchdir = $(DESTDIR)./.gem.20171130-8660-1jpct5h
+sitelibdir = $(DESTDIR)./.gem.20171130-8660-1jpct5h
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -63,12 +63,12 @@ bindir = $(exec_prefix)/bin
 archdir = $(rubyarchdir)
 
 
-CC = gcc
-CXX = g++
-LIBRUBY = $(LIBRUBY_A)
+CC = x86_64-w64-mingw32-gcc
+CXX = x86_64-w64-mingw32-g++
+LIBRUBY = lib$(RUBY_SO_NAME).dll.a
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
-LIBRUBYARG_SHARED = -Wl,-rpath,$(libdir) -L$(libdir) 
-LIBRUBYARG_STATIC = -Wl,-rpath,$(libdir) -L$(libdir) -l$(RUBY_SO_NAME)-static
+LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
+LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
 empty =
 OUTFLAG = -o $(empty)
 COUTFLAG = -o $(empty)
@@ -77,33 +77,33 @@ CSRCFLAG = $(empty)
 RUBY_EXTCONF_H = 
 cflags   = $(optflags) $(debugflags) $(warnflags)
 cxxflags = $(optflags) $(debugflags) $(warnflags)
-optflags = -O3 -fno-fast-math
+optflags = -O3 -fno-omit-frame-pointer -fno-fast-math
 debugflags = -ggdb3
-warnflags = -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration -Wdeprecated-declarations -Wno-packed-bitfield-compat -Wsuggest-attribute=noreturn -Wsuggest-attribute=format
-CCDLFLAGS = -fPIC
-CFLAGS   = $(CCDLFLAGS) $(cflags) -Wall $(ARCH_FLAG)
+warnflags = -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration -Wdeprecated-declarations -Wno-packed-bitfield-compat -Wsuggest-attribute=noreturn -Wsuggest-attribute=format -Wimplicit-fallthrough=0
+CCDLFLAGS = 
+CFLAGS   = $(CCDLFLAGS) -march=x86-64 -mtune=generic -O2 -pipe -Wall $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
-DEFS     = 
-CPPFLAGS =  -I/home/MiyaFubu/MiyaFubu/.rbenv/versions/2.4.2/include  $(DEFS) $(cppflags)
-CXXFLAGS = $(CCDLFLAGS) $(cxxflags) $(ARCH_FLAG)
-ldflags  = -L. -L/home/MiyaFubu/MiyaFubu/.rbenv/versions/2.4.2/lib  -fstack-protector -rdynamic -Wl,-export-dynamic
-dldflags = -L/home/MiyaFubu/MiyaFubu/.rbenv/versions/2.4.2/lib  
+DEFS     = -D_FILE_OFFSET_BITS=64
+CPPFLAGS =  -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT $(DEFS) $(cppflags)
+CXXFLAGS = $(CCDLFLAGS) -march=x86-64 -mtune=generic -O2 -pipe $(ARCH_FLAG)
+ldflags  = -L. -pipe
+dldflags = -pipe -Wl,--enable-auto-image-base,--enable-auto-import $(DEFFILE) 
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
-LDSHARED = $(CC) -shared
-LDSHAREDXX = $(CXX) -shared
+LDSHARED = $(CC) -shared $(if $(filter-out -g -g0,$(debugflags)),,-s)
+LDSHAREDXX = $(CXX) -shared $(if $(filter-out -g -g0,$(debugflags)),,-s)
 AR = ar
-EXEEXT = 
+EXEEXT = .exe
 
 RUBY_INSTALL_NAME = $(RUBY_BASE_NAME)
-RUBY_SO_NAME = ruby
-RUBYW_INSTALL_NAME = 
+RUBY_SO_NAME = x64-msvcrt-ruby240
+RUBYW_INSTALL_NAME = $(RUBYW_BASE_NAME)
 RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
 RUBYW_BASE_NAME = rubyw
 RUBY_BASE_NAME = ruby
 
-arch = x86_64-linux
-sitearch = $(arch)
+arch = x64-mingw32
+sitearch = x64-msvcrt
 ruby_version = 2.4.0
 ruby = $(bindir)/$(RUBY_BASE_NAME)
 RUBY = $(ruby)
@@ -123,10 +123,10 @@ TOUCH = exit >
 
 preload = 
 libpath = . $(libdir)
-LIBPATH =  -L. -L$(libdir) -Wl,-rpath,$(libdir)
-DEFFILE = 
+LIBPATH =  -L. -L$(libdir)
+DEFFILE = $(TARGET)-$(arch).def
 
-CLEANFILES = mkmf.log
+CLEANFILES = mkmf.log $(DEFFILE)
 DISTCLEANFILES = 
 DISTCLEANDIRS = 
 
@@ -134,7 +134,7 @@ extout =
 extout_prefix = 
 target_prefix = /bindex
 LOCAL_LIBS = 
-LIBS =   -lpthread -ldl -lcrypt -lm   -lc
+LIBS = $(LIBRUBYARG_SHARED)  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  
 ORIG_SRCS = cruby.c
 SRCS = $(ORIG_SRCS) 
 OBJS = cruby.o
@@ -253,11 +253,15 @@ site-install-rb: install-rb
 	$(ECHO) translating $(<)
 	$(Q) $(CC) $(INCFLAGS) $(CPPFLAGS) $(CFLAGS) $(COUTFLAG)$@ -S $(CSRCFLAG)$<
 
-$(TARGET_SO): $(OBJS) Makefile
+$(TARGET_SO): $(DEFFILE) $(OBJS) Makefile
 	$(ECHO) linking shared-object bindex/$(DLLIB)
 	-$(Q)$(RM) $(@)
 	$(Q) $(LDSHARED) -o $@ $(OBJS) $(LIBPATH) $(DLDFLAGS) $(LOCAL_LIBS) $(LIBS)
 
 
+
+$(DEFFILE): 
+	$(ECHO) generating $(@)
+	$(Q) (echo EXPORTS && echo $(TARGET_ENTRY)) > $@
 
 $(OBJS): $(HDRS) $(ruby_headers)
