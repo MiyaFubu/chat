@@ -1,13 +1,13 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
-
+<h1>login</h1>
 
 <%= form_for :session, url: login_path do |f| %>
 <p>
-  <%= f.text_field :name %>
-  <%= f.text_field :password %>
+
+  name:<%= f.text_field :name %><br>
+  pass:<%= f.text_field :pass %>
   <%= f.submit"login" %>
 </p>
-
-
 <% end %>
+<p>
+  ユーザーを持っていないなら、<%= link_to 'ユーザー作成', create_user_path %>へ
+</p>

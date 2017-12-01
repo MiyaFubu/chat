@@ -5,7 +5,9 @@ class SessionsController < ApplicationController
 
   def create
     # authenticate
-    if authenticate(@user, session_params[:password])
+    if authenticate(@user, session_params[:pass]) then
+      puts params[:pass]
+      logger.debug "authenticate(@user, session_params[:pass])"
       session[:user_id] = @user.id
       return redirect_to '/'
     else
@@ -28,7 +30,7 @@ class SessionsController < ApplicationController
   end
 
   def session_params
-    params.require(:session).permit(:name, :password)
+    params.require(:session).permit(:name, :password_digest)
   end
 
   def authenticate(user, password)
