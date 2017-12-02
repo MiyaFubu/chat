@@ -13,8 +13,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.password_digest = @user.encrypt(:password_digest)
+    binding.pry
+    @user.password_digest = @user.encrypt(user_params[:password_digest])
+    binding.pry
     @user.save!
+    binding.pry
     redirect_to @user
   end
 
