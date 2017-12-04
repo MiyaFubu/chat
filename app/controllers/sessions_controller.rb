@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
   def create
     # authenticate
 
-    if authenticate(@user, session_params[:pass]) then
+    if authenticate(@user, params[:session][:pass]) then
       binding.pry
-      puts params[:pass]
+      puts params[:session][:pass]
       binding.pry
       session[:user_id] = @user.id
       return redirect_to '/'
