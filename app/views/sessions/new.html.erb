@@ -1,13 +1,22 @@
-<h1>login</h1>
-
+<div class="jumbotron">
+  <h1>login</h1>
+</div>
 <%= form_for :session, url: login_path do |f| %>
-<p>
-
-  name:<%= f.text_field :name %><br>
-  pass:<%= f.text_field :pass %>
-  <%= f.submit"login" %>
-</p>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">name:</label>
+    <%= f.text_field :name,class: 'col-sm-5', placeholder: 'name' %><br>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">pass:</label>
+    <%= f.text_field :pass,class: 'col-sm-5', placeholder: 'password' %><br>
+  </div>
+  <div class="form-group">
+    <%= f.submit"login",class: 'col-sm-offset-2 col-sm-2 btn btn-primary' %>
+  </div>
+</form>
 <% end %>
+
 <p>
   ユーザーを持っていないなら、<%= link_to 'ユーザー作成', create_user_path %>へ
 </p>
