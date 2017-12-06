@@ -2,12 +2,12 @@
 <table>
   <tbody>
     <tr>
-      <td>user_is</td>
+      <td>user_name</td>
       <td>content</td>
     </tr>
     <% @chats.each do |chat| %>
     <tr>
-      <td><%= chat.user_id %></td>
+      <td><%= chat.user.name %></td>
       <td><%= chat.content %></td>
     </tr>
     <% end %>
@@ -15,9 +15,7 @@
 </table>
 <hr>
 <%= form_for Chat.new, url: chats_path + "?chat_room_id=#{@chat_room.id}"  do |f| %>
-    <%=  f.text_field :user_id %><br>
     <%=  f.text_field :content %><br>
     <%= f.submit %>
 <% end %>
 <%= link_to '一覧に戻る', chat_rooms_path %>
-<%= link_to 'edit', edit_chat_path(@chats) %>

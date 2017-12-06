@@ -7,9 +7,7 @@ class SessionsController < ApplicationController
     # authenticate
 
     if authenticate(@user, params[:session][:pass]) then
-      binding.pry
       puts params[:session][:pass]
-      binding.pry
       session[:user_id] = @user.id
       return redirect_to '/'
     else
@@ -36,7 +34,6 @@ class SessionsController < ApplicationController
   end
 
   def authenticate(user, password)
-    binding.pry
     user.password_digest == user.encrypt(password)
   end
 
