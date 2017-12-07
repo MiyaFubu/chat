@@ -3,6 +3,7 @@ class ChatRoomsController < ApplicationController
 
   def new
     @chat_room = ChatRoom.new
+    @user = current_user
   end
 
   def index
