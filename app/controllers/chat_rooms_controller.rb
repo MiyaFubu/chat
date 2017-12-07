@@ -7,6 +7,7 @@ class ChatRoomsController < ApplicationController
 
   def index
     @chat_rooms = ChatRoom.all
+    @user = current_user
   end
 
   def show

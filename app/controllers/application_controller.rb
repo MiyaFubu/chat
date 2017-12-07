@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  semantic_breadcrumb :index, :root_path
 
   def authenticate
     if User.find_by(id: session[:user_id]).nil?

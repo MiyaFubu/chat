@@ -1,15 +1,15 @@
 
 <h1>ChatRoom一覧</h1>
-<table>
+<table class="ui right aligned table">
   <thead>
     <tr>
-      <th>room_id</th>
+      <th class="left aligned">room_id</th>
       <th>room_name</th>
     </tr>
   </thead>
 <% @chat_rooms.each do |chat_room| %>
   <tbody>
-    <td><%= chat_room.id %></td>
+    <td class="left aligned"><%= chat_room.id %></td>
     <td><%= chat_room.chat_name %></td>
     <td><%= link_to 'in', chat_room_path(chat_room) %></td>
   </tbody>
