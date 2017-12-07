@@ -9,7 +9,10 @@
   </head>
 
   <body>
+    <% if User.find_by(id: session[:user_id]).nil? %>
+    <% else %>
     <%= render 'layouts/header' %>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
