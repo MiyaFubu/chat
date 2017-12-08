@@ -1,19 +1,22 @@
 
-<h1>ChatRoom一覧</h1>
-<table class="ui right aligned table">
-  <thead>
-    <tr>
-      <th class="left aligned">room_id</th>
-      <th>room_name</th>
-    </tr>
-  </thead>
-<% @chat_rooms.each do |chat_room| %>
-  <tbody>
-    <td class="left aligned"><%= chat_room.id %></td>
-    <td><%= chat_room.chat_name %></td>
-    <td><%= link_to 'in', chat_room_path(chat_room) %></td>
-  </tbody>
-<% end %>
-</table>
+<h2 class="ui dividing header">ChatRoom一覧</h2>
+
+<div class="ui center aligned stackable grid container">
+  <% @chat_rooms.each do |chat_room| %>
+  <div class="five wide column">
+    <div class="ui horizontal segments">
+      <div class="ui medium header segment">
+        <%= chat_room.id %>
+      </div>
+      <div class="ui medium segment">
+        <em><%= chat_room.chat_name %></em>
+      </div>
+      <div class="ui medium segment">
+        <%= link_to 'in', chat_room_path(chat_room),class: 'fluid ui green button'%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 <%= link_to 'logout', logout_path, method: :delete %>
 <%= link_to '新しい部屋を作成する', new_chat_room_path %>
