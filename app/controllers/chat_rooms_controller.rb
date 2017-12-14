@@ -3,15 +3,18 @@ class ChatRoomsController < ApplicationController
 
   def new
     @chat_room = ChatRoom.new
+    @user = current_user
   end
 
   def index
     @chat_rooms = ChatRoom.all
+    @user = current_user
   end
 
   def show
     @chat_room = ChatRoom.find(params[:id])
     @chats = @chat_room.chats
+    @user = current_user
   end
 
 
@@ -19,6 +22,7 @@ class ChatRoomsController < ApplicationController
     @chat_room = ChatRoom.new(chat_room_params)
     @chat_room.save!
     redirect_to @chat_room
+    @user = current_user
   end
 
 private
